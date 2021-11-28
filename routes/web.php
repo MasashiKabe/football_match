@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'user'], function() {
+    Route::get('top', 'UserController@top');
+    Route::get('postlist', 'UserController@postlist');
+    Route::get('search', 'UserController@search');
+});
+
+Route::group(['prefix' => 'cap'], function() {
+    Route::get('team', 'CapController@create');
+    Route::get('mypage', 'CapController@mypagetop');
+    Route::get('mypage/edit', 'CapController@edit');
+    Route::get('mypage/post', 'CapController@post');
+    Route::get('search', 'CapController@search');
+});
