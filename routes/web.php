@@ -17,16 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'user'], function() {
-    Route::get('top', 'UserController@top');
-    Route::get('postlist', 'UserController@postlist');
-    Route::get('search', 'UserController@search');
+Route::group(['prefix' => 'user'], function() {  
+    Route::get('login', 'LoginController@login');
+    Route::get('mypage', 'User\HomeController@mypage');
+    Route::get('mypage/matchinglist', 'User\HomeController@matchinglist');
+    Route::get('mypage/registrationedit', 'User\HomeController@registrationedit');
+    Route::get('mypage/myteamdetail', 'User\HomeController@myteamdetail');
+    Route::get('teammanagement', 'User\TeamController@teammanagement');
+    Route::get('teammanagement/newteam', 'User\TeamController@newteam');
+    Route::get('matchrequest', 'User\MatchingController@matchrequest');
+    Route::get('matchrequest/searchotherteam', 'User\MatchingController@searchotherteam');
+    Route::get('matchrequest/listotherteam', 'User\MatchingController@listotherteam');
+    Route::get('matchrequest/detailotherteam', 'User\MatchingController@detailotherteam');
+    Route::get('matchrequest/apply', 'User\MatchingController@apply');
+    Route::get('matchapproval', 'User\ApprovalController@matchapproval');
+    Route::get('matchapproval/searchapprovaldesk', 'User\ApprovalController@searchapprovaldesk');
+    Route::get('matchapproval/approvaldesklist', 'User\ApprovalController@approvaldesklist');
+    Route::get('matchapproval/detailapprovaldesk', 'User\ApprovalController@detailapprovaldesk');
+    Route::get('matchapproval/approval', 'User\ApprovalController@approval');
 });
 
-Route::group(['prefix' => 'cap'], function() {
-    Route::get('team', 'CapController@create');
-    Route::get('mypage', 'CapController@mypagetop');
-    Route::get('mypage/edit', 'CapController@edit');
-    Route::get('mypage/post', 'CapController@post');
-    Route::get('search', 'CapController@search');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Football Match</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -48,6 +48,10 @@
                 font-size: 84px;
             }
 
+            .sub-title {
+                font-size: 40px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -81,7 +85,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Football Match
+                    <p class="sub-title">～対戦相手とマッチングしよう～</p>
                 </div>
 
                 <div class="links">
